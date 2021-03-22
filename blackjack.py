@@ -10,7 +10,7 @@ def allowed_to_play(player):
 
 def check_endgame_results(player, computer):
     result1, result2 = sum(player), sum(computer)
-    print(f"Final results: {player} {computer}")
+    print(f"Final results: You: {player} Computer: {computer}")
     if (result1 > result2 and result1 <= 21) or result2 > 21:
         print("You win!")
     elif (result2 > result1 and result2 <= 21) or result1 > 21:
