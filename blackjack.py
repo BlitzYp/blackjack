@@ -1,5 +1,6 @@
 import random
 import pyfiglet
+import os
 
 deck = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 
@@ -44,6 +45,7 @@ if __name__ == "__main__":
     while True:
         if "n" in input("Want to play blackjack 0_0?(y/n): "):
             break
+        os.system("clear")
         print(pyfiglet.figlet_format("Blackjack"))
         player = [random.choice(deck), random.choice(deck)]
         computer = [random.choice(deck), random.choice(deck)]
