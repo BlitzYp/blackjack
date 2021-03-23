@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+run = "python3 blackjack.py"
+
+[packages]
+pyfiglet = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
