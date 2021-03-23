@@ -19,6 +19,13 @@ def check_endgame_results(player, computer):
     else:
         print("Draw")
 
+def ace_handler(player: list):
+    """A function that checks if there's an ace in the hand of cards and the total sum of it is over 21"""
+    if sum(player) > 21 and 11 in player:
+        player.remove(11)
+        player.append(1)
+
+
 def game_logic(player: list, computer: list, player_choice: bool = True):
     # Player logic
     if player_choice:
@@ -29,6 +36,8 @@ def game_logic(player: list, computer: list, player_choice: bool = True):
         if "y" in input("Draw another card?(y/n): "): player.append(random.choice(deck))
         else: player_choice = False
 
+    ace_handler(player)
+
     # Logic for the computer
     computer_choice = random.randint(0, 1)
     if computer_choice > 0:
@@ -36,6 +45,7 @@ def game_logic(player: list, computer: list, player_choice: bool = True):
     elif computer_choice == 0:
         check_endgame_results(player, computer)
         return
+    ace_handler(computer)
     if allowed_to_play(player) and allowed_to_play(computer):
         game_logic(player, computer, player_choice)
     else:
