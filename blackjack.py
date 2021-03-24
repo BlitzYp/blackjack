@@ -2,7 +2,8 @@ import random
 import pyfiglet
 import os
 
-deck: list[int] = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+from typing import List
+deck: List[int] = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 
 def allowed_to_play(player):
     if sum(player) > 21:
@@ -58,8 +59,8 @@ if __name__ == "__main__":
         # Clear the screen from all the data from the previous games
         os.system("clear")
         print(pyfiglet.figlet_format("Blackjack"))
-        player: list[int] = [random.choice(deck), random.choice(deck)]
-        computer: list[int] = [random.choice(deck), random.choice(deck)]
+        player: List[int] = [random.choice(deck), random.choice(deck)]
+        computer: List[int] = [random.choice(deck), random.choice(deck)]
         if sum(player) == 21:
             print("Blackjack...You won!")
             continue
