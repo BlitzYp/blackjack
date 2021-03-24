@@ -2,7 +2,7 @@ import random
 import pyfiglet
 import os
 
-deck = [11,2,3,4,5,6,7,8,9,10,10,10,10]
+deck: list[int] = [11,2,3,4,5,6,7,8,9,10,10,10,10]
 
 def allowed_to_play(player):
     if sum(player) > 21:
@@ -39,7 +39,7 @@ def game_logic(player: list, computer: list, player_choice: bool = True):
     ace_handler(player)
 
     # Logic for the computer
-    computer_choice = random.randint(0, 1)
+    computer_choice: int = random.randint(0, 1)
     if computer_choice > 0:
         computer.append(random.choice(deck))
     elif computer_choice == 0:
@@ -55,10 +55,11 @@ if __name__ == "__main__":
     while True:
         if "n" in input("Want to play blackjack 0_0?(y/n): "):
             break
+        # Clear the screen from all the data from the previous games
         os.system("clear")
         print(pyfiglet.figlet_format("Blackjack"))
-        player = [random.choice(deck), random.choice(deck)]
-        computer = [random.choice(deck), random.choice(deck)]
+        player: list[int] = [random.choice(deck), random.choice(deck)]
+        computer: list[int] = [random.choice(deck), random.choice(deck)]
         if sum(player) == 21:
             print("Blackjack...You won!")
             continue
